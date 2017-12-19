@@ -4,32 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.androidlearn.SecondActivity">
+    tools:context="com.example.androidlearn.UseServiceActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/button_phone"
+            android:id="@+id/start_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="打电话给10086" />
+            android:text="启动服务" />
 
         <Button
-            android:id="@+id/send_data"
+            android:id="@+id/stop_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="传输数据" />
+            android:text="停止服务" />
+
+
 
         <Button
-            android:id="@+id/send_data2"
+            android:id="@+id/bind_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="发送数据并传回来" />
+            android:text="绑定服务" />
+
+        <Button
+            android:id="@+id/unbind_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="解除绑定服务" />
 
 
     </LinearLayout>
