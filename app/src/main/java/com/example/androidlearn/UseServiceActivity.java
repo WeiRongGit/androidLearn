@@ -11,9 +11,11 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.servicetest.MyIntentService2;
 import com.example.servicetest.MyService;
 
 public class UseServiceActivity extends AppCompatActivity {
@@ -27,6 +29,7 @@ public class UseServiceActivity extends AppCompatActivity {
     Button btn_bind_service;
     Button btn_unbind_service;
 
+    Button btn_intent_service;
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -52,7 +55,10 @@ public class UseServiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_use_service);
 
      /*   getBindBtn();
-        getLaunchBtn();*/
+        getLaunchBtn();
+        ForegroundService();
+        */
+        getIntentBtn();
     }
 
     private void ForegroundService() {
@@ -68,7 +74,24 @@ public class UseServiceActivity extends AppCompatActivity {
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
                 .setContentIntent(pendingIntent).build();
 
-        startForegroundService(1, notification);
+        //api 26 or highter
+//        startForegroundService(1, notification);
+    }
+
+
+    private void getIntentBtn() {
+        btn_intent_service = findViewById(R.id.start_intent_service);
+        bindIntentListener();
+    }
+
+    private void bindIntentListener() {
+        btn_intent_service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MainActivity"," Thread id is "+ Thread.currentThread().getId());
+                startService(new Intent(UseServiceActivity.this, MyIntentService2.class));
+            }
+        });
     }
 
 
