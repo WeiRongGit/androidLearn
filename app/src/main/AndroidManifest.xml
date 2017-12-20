@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidlearn">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,16 +38,27 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".UseServiceActivity">
-
-        </activity>
+        <activity android:name=".UseServiceActivity" />
 
         <service
             android:name="com.example.servicetest.MyIntentService2"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".LayoutTestActivity">
+        <activity android:name=".LayoutTestActivity" />
+        <activity android:name="com.example.Broadcast.BroadTestActivity" />
+
+        <!--
+            <receiver
+            android:name="com.example.Broadcast.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        -->
+        <activity android:name="com.example.fileIO.FileActivity">
+
+        </activity>
+        <activity android:name="com.example.fileIO.SharedPreferencesActivity" />
+        <activity android:name="com.example.fileIO.SqliteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
